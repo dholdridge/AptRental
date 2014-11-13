@@ -9,12 +9,12 @@
 	<?php /* This tag starts PHP code */
 		//PHP uses C-style comments
 		function test_func() { // Defines a function called test_func
-			echo '<p>Should output 42</p>\n';
+			echo "<p>Should output 42</p>\n";
 			/* Echo causes the argument to be output to the HTML,
 			So the above line will appear in the HTML source */
 			$num = 42; // PHP variables begin with $ and are dynamically-typed
 						//Sorry Jamie :(
-			echo '<p>$num</p>\n';
+			echo "<p>$num</p>\n";
 		}
 		test_func();
 	?> <!-- Close the php tag -->

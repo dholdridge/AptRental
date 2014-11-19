@@ -5,7 +5,7 @@
 			echo "Error: couldn't connect to database";
 			exit;
 		}
-		return db;
+		return $db;
 	}
 	
 	/* Test the function */
@@ -14,7 +14,7 @@
 	$result = $db->query($query);
 	$num_results = $result->num_rows;
 	
-	for ($i=0;i<$num_results;$i++) {
+	for ($i=0;$i<$num_results;$i++) {
 		$row = $result->fetch_assoc();
 		echo $row['Username'].', '.$row['Resident_Name'].", ".$row['Date_Of_Birth'].', '.$row['Apt_No']."<br \>";
 	}

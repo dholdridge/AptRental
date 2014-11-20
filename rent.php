@@ -5,10 +5,11 @@
 		<title>Rent</title>
 	</head>
 	<body>
-		<form action="rent_results.php" method="post">
+		<form action="rent_result.php" method="post">
 			Date: 
 				<select name="date"> <!-- Populate the drop-down -->
 				</select>
+			<br />
 			Apartment No:
 				<input type="text" name="aptno" />
 				<br />
@@ -28,8 +29,8 @@
 			User Card:
 				<select name="card">
 					<?php
-						$username = "user1" // TODO: Get the current user
-						$db = conect_db()
+						$username = "user1"; // TODO: Get the current user
+						$db = connect_db();
 						$query = "select Card_No from PAYMENT_INFORMATION where Username like '".$username."';";
 						$result = $db->query($query);
 						$num_rows = $result->num_rows;
@@ -38,7 +39,7 @@
 							echo "<option value='".$row['Card_No']."'>".$row['Card_No']."</option>\n";
 						}
 						$result->free();
-						$db.close();
+						$db->close();
 					?>
 				</select>
 			<input type="submit" name="pay" value="Pay" />

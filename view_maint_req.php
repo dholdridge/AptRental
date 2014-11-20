@@ -17,14 +17,14 @@
 					$db = connect_db();
 					$query = "select * from MAINTENANCE_REQUEST where Issue_Status = 'Unresolved';";
 					$result = $db->query($query);
-					$num_rows = $db->$result->num_rows;
+					$num_rows = $result->num_rows;
 					for ($i=0;$i<$num_rows;$i++) {
 						$row = $result->fetch_assoc();
 						echo "<tr>\n";
 						echo "<td>".$row['Date_Of_Request']."</td>\n";
 						echo "<td>".$row['Apt_No']."</td>\n";
 						echo "<td>".$row['Issue_Type']."</td>\n";
-						echo "<input type='check' name = 'aptno' value='".$row['Apt_No']."' /></td>\n";
+						echo "<td><input type='check' name = 'aptno' value='".$row['Apt_No']."' /></td>\n";
 						echo "</tr>\n";
 					}
 					$result->free();
@@ -44,8 +44,8 @@
 				<?php 
 					$db = connect_db();
 					$query = "select * from MAINTENANCE_REQUEST where Issue_Status = 'Resolved';";
-					$result = $db->query($query);
-					$num_rows = $db->$result->num_rows;
+					$result = query($query);
+					$num_rows =$result->num_rows;
 					for ($i=0;$i<$num_rows;$i++) {
 						$row = $result->fetch_assoc();
 						echo "<tr>\n";

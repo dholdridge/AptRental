@@ -1,4 +1,4 @@
-<?php include connect_db.php ?>
+<?php require('connect_db.php'); ?>
 <html>
 	<head>
 		<title>Apartment Allotment</title>
@@ -25,12 +25,14 @@
 				
 				for ($i=0;$i<$num_rows;$i++) {
 					$row = $result->fetch_assoc();
+					echo "<tr>\n";
 					echo "<td>".$row['Apt_No']."</td>\n";
 					echo "<td>".$row['Category']."</td>\n";
 					echo "<td>".$row['Rent']."</td>\n";
 					echo "<td>".$row['Square_Feet']."</td>\n";
 					echo "<td>".$row['Available_On']."</td>\n";
 					echo "<td><input type='radio' name='apt' value='".$row['Apt_No']."' /></td>\n";
+					echo "</tr>\n";
 				}
 				$result->free();
 				$db->close();

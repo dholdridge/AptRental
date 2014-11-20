@@ -8,7 +8,7 @@
 		return $db;
 	}
 	
-	/* Test the function */
+	/* Test the function 
 	$db = connect_db();
 	$query = "select * from RESIDENT";
 	$result = $db->query($query);
@@ -20,4 +20,6 @@
 	}
 	$result->free();
 	$db->close();
+	
+	*/
 	?>

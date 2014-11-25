@@ -63,7 +63,7 @@ if(isset($_POST['Submit'])){
 		$err = "Username already taken. Please choose another.";
 		}else{
 		//send to application form
-			header('Location: Application.php';
+			header('Location: Application.php');
 		}
 	}
 }

@@ -13,7 +13,7 @@ include 'createUser.php';
 <input id="Uname" type="text" name="loginName">
 
 <label>Password: </label>
-<input id="Upass" type="text" name="loginPassword">
+<input id="Upass" type="password" name="loginPassword">
 
 <input name="Submit" type="submit" value=" Login ">
 <input name="CreateUser" type ="submit" value = " Create New User">

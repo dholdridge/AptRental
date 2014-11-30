@@ -1,3 +1,6 @@
+<html>
+<center><h1>3 Month Leasing Report</h1></center>
+</html>
 <?php
 
 include 'dbinfo.php' ; 

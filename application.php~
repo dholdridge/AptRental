@@ -1,5 +1,4 @@
-<html>
-<center><h1>Prospective Resident Application Form</h1></center>
+﻿<html>
 <body>
 <script>
 function popup() {
@@ -39,7 +38,7 @@ Rent Maximum: <input type="text" name="max"><br>
 <?php
 include 'dbinfo.php' ; 
 if (isset($_POST['submit'])) {
-    if (($_POST['leaseterm'] == "" || $_POST['uname'] == "" || $_POST['birthday'] == "" || $_POST['gender'] == "" || $_POST['income'] == "" || $_POST['apt_cat'] == "" || $_POST['movein'] == "" || $_POST['prev'] == "" || $_POST['min'] == "" || $_POST['max'] == "")) {
+    if (($_POST['leaseterm'] == "" || $_POST['uname'] == "" || $_POST['birthday'] == "" || $_POST['gender'] == "" || $_POST['income'] == "" || $_POST['apt_cat'] == "" || $_POST['movein'] == "" || $_POST['prev'] == "" || $_POST['min'] == "" || $_POST['max'] == "") {
         echo "<script> popup(); </script>";
     } else {
        $con = new mysqli($host,$username,$password,$database);

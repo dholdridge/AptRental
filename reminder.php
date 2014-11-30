@@ -1,4 +1,5 @@
 <html>
+<center><h1>Reminder</h1></center>
 <body>
 <script>
 function popup() {
@@ -40,3 +41,4 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
+

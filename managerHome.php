@@ -5,7 +5,7 @@
 
 <a href="app_review.php">Application Review</a>
 
-<a href="view_maint_req.php">Maintenance Requests</a
+<a href="view_maint_req.php">Maintenance Requests</a>
 
 <a href="reminder.php">Rent Reminder</a>
 

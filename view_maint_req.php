@@ -45,7 +45,7 @@
 				<?php 
 					$db = connect_db();
 					$query = "select * from MAINTENANCE_REQUEST where Issue_Status = 'Resolved';";
-					$result = query($query);
+					$result = $db->query($query);
 					$num_rows =$result->num_rows;
 					for ($i=0;$i<$num_rows;$i++) {
 						$row = $result->fetch_assoc();

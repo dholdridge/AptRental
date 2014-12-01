@@ -9,7 +9,7 @@
 			
 			$db = connect_db();
 			$query = "delete from PAYMENT_INFORMATION where Card_No like '$num';";
-			echo $query."\n";
+			//echo $query."\n";
 			
 			$result = $db->query($query);
 			if ($result) {

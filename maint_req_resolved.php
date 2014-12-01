@@ -12,7 +12,7 @@
 			$date = $key_values[2];
 			
 			$db = connect_db();
-			$query = "update MAINTENANCE_REQUEST set Issue_Status = 'Resolved' where Apt_No like '$aptno' and IssueType like '$issue' and Date_Of_Request like '$date';";
+			$query = "update MAINTENANCE_REQUEST set Issue_Status = 'Resolved' where Apt_No like '$aptno' and Issue_Type like '$issue' and Date_Of_Request like '$date';";
 			echo $query."\n";
 			$result = $db->query($query);
 			if ($result){
@@ -22,6 +22,7 @@
 			}
 			
 			$result->free();
-			$db->close()
+			$db->close();
+		?>
 	</body>
 </html>

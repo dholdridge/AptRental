@@ -24,7 +24,8 @@
 						echo "<td>".$row['Date_Of_Request']."</td>\n";
 						echo "<td>".$row['Apt_No']."</td>\n";
 						echo "<td>".$row['Issue_Type']."</td>\n";
-						echo "<td><input type='check' name = 'aptno' value='".$row['Apt_No']."' /></td>\n";
+						$key = $row['Apt_No'].';'.$row['Issue_Type'].';'.$row['Date_Of_Request'];
+						echo "<td><input type='checkbox' name = 'key' value='".$key."' /></td>\n";
 						echo "</tr>\n";
 					}
 					$result->free();

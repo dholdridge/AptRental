@@ -15,9 +15,9 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT CATEGORY, COUNT(*) AS Total FROM APARTMENT WHERE Available_On > '2014-08-01' GROUP BY CATEGORY;";
-$sql2 = "SELECT CATEGORY, COUNT(*) AS Total FROM APARTMENT WHERE Available_On > '2014-09-01' GROUP BY CATEGORY;";
-$sql3 = "SELECT CATEGORY, COUNT(*) AS Total FROM APARTMENT WHERE Available_On > '2014-10-01' GROUP BY CATEGORY;";
+$sql = "SELECT CATEGORY, COUNT(*) AS Total FROM APARTMENT WHERE DATE_SUB(Available_On,INTERVAL Lease_Term MONTH) > '2014-08-01' GROUP BY CATEGORY;";
+$sql2 = "SELECT CATEGORY, COUNT(*) AS Total FROM APARTMENT WHERE DATE_SUB(Available_On,INTERVAL Lease_Term MONTH) > '2014-09-01' GROUP BY CATEGORY;";
+$sql3 = "SELECT CATEGORY, COUNT(*) AS Total FROM APARTMENT WHERE DATE_SUB(Available_On,INTERVAL Lease_Term MONTH) > '2014-10-01' GROUP BY CATEGORY;";
 $temp = 1;
 $str1 = 'August';
 $result = mysqli_query($conn, $sql);

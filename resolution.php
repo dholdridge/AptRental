@@ -1,5 +1,5 @@
 <html>
-<center><h1>Service Request Resolution Report</h1></center>
+<center><h1>Service	Request	Resolution	Report</h1></center>
 </html>
 <?php
 
@@ -15,9 +15,9 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT Issue_Type,AVG(Time_To_Service) AS Total FROM (SELECT Issue_Type, Date_Resolved - Date_Of_Request + 1 AS Time_To_Service FROM MAINTENANCE_REQUEST WHERE Issue_Status = 'Resolved' AND Date_Of_Request >= '2014-08-01') AS T;";
-$sql2 = "SELECT Issue_Type,AVG(Time_To_Service) AS Total FROM (SELECT Issue_Type, Date_Resolved - Date_Of_Request + 1 AS Time_To_Service FROM MAINTENANCE_REQUEST WHERE Issue_Status = 'Resolved' AND Date_Of_Request >= '2014-09-01') AS T;";
-$sql3 = "SELECT Issue_Type,AVG(Time_To_Service) AS Total FROM (SELECT Issue_Type, Date_Resolved - Date_Of_Request + 1 AS Time_To_Service FROM MAINTENANCE_REQUEST WHERE Issue_Status = 'Resolved' AND Date_Of_Request >= '2014-10-01') AS T;";
+$sql = "SELECT Issue_Type,AVG(Time_To_Service) AS Total FROM (SELECT Issue_Type, Date_Resolved - Date_Of_Request + 1 AS Time_To_Service FROM MAINTENANCE_REQUEST WHERE Issue_Status = 'Resolved' AND Date_Of_Request >= '2014-08-01' AND Date_Of_Request <= '2014-08-31') AS T;";
+$sql2 = "SELECT Issue_Type,AVG(Time_To_Service) AS Total FROM (SELECT Issue_Type, Date_Resolved - Date_Of_Request + 1 AS Time_To_Service FROM MAINTENANCE_REQUEST WHERE Issue_Status = 'Resolved' AND Date_Of_Request >= '2014-09-01' AND Date_Of_Request <= '2014-09-30') AS T;";
+$sql3 = "SELECT Issue_Type,AVG(Time_To_Service) AS Total FROM (SELECT Issue_Type, Date_Resolved - Date_Of_Request + 1 AS Time_To_Service FROM MAINTENANCE_REQUEST WHERE Issue_Status = 'Resolved' AND Date_Of_Request >= '2014-10-01' AND Date_Of_Request <= '2014-10-31') AS T;";
 $temp = 1;
 $str1 = 'August';
 $result = mysqli_query($conn, $sql);

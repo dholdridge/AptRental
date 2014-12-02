@@ -29,7 +29,10 @@
 			User Card:
 				<select name="card">
 					<?php
-						$username = "user1"; // TODO: Get the current user
+						session_start();
+						
+						$username = $_SESSION['loginName'];
+						echo $username;
 						$db = connect_db();
 						$query = "select Card_No from PAYMENT_INFORMATION where Username like '".$username."';";
 						$result = $db->query($query);

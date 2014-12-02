@@ -5,10 +5,11 @@
 	</head>
 	<body>
 		<?php
+		date_default_timezone_set("America/New_York");
 		/*Prospect becomes resident
 		Apt Availability = Move-in + Lease term
 		*/
-		$explodeARray = explode(';', $_POST['key'])
+		$explodeArray = explode(';', $_POST['key'])
 		$aptno = $explodeArray[0];
 		$username = $explodeArray[1];
 	/*	$resname = $_POST[''];
@@ -21,17 +22,21 @@
 		$ = $_POST[''];   */
 
 		$db = connect_db();
-		$addRes = "insert into RESIDENT values('$username', '$resname', '$dob', '$aptno');";
-		$getApt = "select * from APARTMENT where Apt_No like '$aptno';";
-		$Apt = $db->query($getApt);
-		$A = $Prosp-> fetch_assoc();
+		
+		$ResResult = $db->query("select * from PROSPECTIVE_RESIDENT where Username like '$username';");
+        $AptResult = $db->query("select * from APARTMENT where Apt_No like '$aptno';");
+        $Apt = $AptResult-> fetch_assoc();
+        $Res = $ResResult->fetch_assoc();
+        $resname = $Res['Prospect_Name'];
+        $dob = $Res['Date_Of_Birth'];
+        $addResQuery = "insert into RESIDENT values('$username', '$resname', '$dob', '$aptno');";
 		$currentDate = date("Y-m-d");
-		$lease = $A['Lease_Term'];
+		$lease = $Apt['Lease_Term'];
 		$AvailDate = $currentDate + strtotime("+$lease months");
 		echo $AvailDate;
-		$updateApt = "update APARTMENT set Availabile_On = '$AvailDate' where Apt_No = '$aptno';";
-		$addResult = $db->query($addRes);
-		$updateResult = $db->query($updateApt);
+		$updateAptQuery = "update APARTMENT set Availabile_On = '$AvailDate' where Apt_No = '$aptno';";
+		$addResult = $db->query($addResQuery);
+		$updateResult = $db->query($updateAptQuery);
 		
 		if ($addResult && $updateResult) {
 			echo "Apartment assigned.";
@@ -42,7 +47,8 @@
 
 		$addResult->free();
 		$updateResult->free();
-		$Prosp
+		$AptResult->free();
+		$ResResult->free();
 		$db->close();
 		?>
 	</body>

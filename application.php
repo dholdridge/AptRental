@@ -38,8 +38,6 @@ Rent Maximum: <input type="number" name="max"><br>
 
 <?php
 include 'dbinfo.php' ; 
-include 'newUser.php';
-
 if (isset($_POST['submit'])) {
     if (empty($_POST['uname']) || empty($_POST['birthday']) || empty($_POST['income']) || empty($_POST['movein']) || empty($_POST['prev']) || empty($_POST['min']) || empty($_POST['max']))) {
         echo "No fields may be left blank. Please fill in all fields and try again.";

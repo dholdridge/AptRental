@@ -16,7 +16,7 @@ Birthday: <input type="date" name="birthday"><br>
 Gender: <select name="gender">
 <option value="M">M</option>
 <option value="F">F</option></select><br>
-Income: <input type="text" name="income"><br>
+Income: <input type="number" name="income"><br>
 Preferred Lease Term: <select name="leaseterm">
 <option value="3">3</option>
 <option value="6">6</option>
@@ -27,10 +27,10 @@ Apartment Category: <select name="apt_cat">
 <option value="2bdr-2bth">2bdr-2bth</option></select><br>
 Preferred Move In Date: <input type="date" name="movein"><br>
 Previous Residence: <input type="text" name="prev"><br>
-Rent Minimum: <input type="text" name="min"><br>
-Rent Maximum: <input type="text" name="max"><br>
+Rent Minimum: <input type="number" name="min"><br>
+Rent Maximum: <input type="number" name="max"><br>
 
-<input type="submit" name="submit" value="Create">
+<input type="submit" name="submit" value="Apply">
 </form>
 
 </body>
@@ -38,14 +38,16 @@ Rent Maximum: <input type="text" name="max"><br>
 
 <?php
 include 'dbinfo.php' ; 
+include 'newUser.php';
+
 if (isset($_POST['submit'])) {
-    if (($_POST['leaseterm'] == "" || $_POST['uname'] == "" || $_POST['birthday'] == "" || $_POST['gender'] == "" || $_POST['income'] == "" || $_POST['apt_cat'] == "" || $_POST['movein'] == "" || $_POST['prev'] == "" || $_POST['min'] == "" || $_POST['max'] == "")) {
-        echo "<script> popup(); </script>";
+    if (empty($_POST['uname']) || empty($_POST['birthday']) || empty($_POST['income']) || empty($_POST['movein']) || empty($_POST['prev']) || empty($_POST['min']) || empty($_POST['max']))) {
+        echo "No fields may be left blank. Please fill in all fields and try again.";
     } else {
        $con = new mysqli($host,$username,$password,$database);
 	   
 	   $sql="INSERT INTO PROSPECTIVE_RESIDENT VALUES(
-			'user3',
+			$Uname,
 			'$_POST[uname]',
 			'$_POST[birthday]',
 			'$_POST[gender]',

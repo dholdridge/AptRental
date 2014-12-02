@@ -31,7 +31,8 @@
 					echo "<td>".$row['Rent']."</td>\n";
 					echo "<td>".$row['Square_Feet']."</td>\n";
 					echo "<td>".$row['Available_On']."</td>\n";
-					echo "<td><input type='radio' name='apt' value='".$row['Apt_No']."' /></td>\n";
+					$key = $row['Apt_No'].';'.$_POST['Usernme'];
+					echo "<td><input type='radio' name='key' value='".$key."' /></td>\n";
 					echo "</tr>\n";
 				}
 				$result->free();

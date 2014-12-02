@@ -1,14 +1,7 @@
 <html>
 <center><h1>Prospective Resident Application Form</h1></center>
 <body>
-<script>
-function popup() {
-    alert("The form is not complete");
-}
-function popup2() {
-	alert("Application created successfully");
-}
-</script>
+
 
 <form action="" method="post">
 Name: <input type="text" name="uname"><br>

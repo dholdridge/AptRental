@@ -36,4 +36,40 @@ Rent Maximum: <input type="number" name="max"><br>
 </body>
 </html>
 
+<?php
+include 'dbinfo.php' ; 
+if (isset($_POST['submit'])) {
+    if (empty($_POST['uname']) || empty($_POST['birthday']) || empty($_POST['income']) || empty($_POST['movein']) || empty($_POST['prev']) || empty($_POST['min']) || empty($_POST['max']))) {
+        echo "No fields may be left blank. Please fill in all fields and try again.";
+    } else {
+       $con = new mysqli($host,$username,$password,$database);
+	   
+	   $sql="INSERT INTO PROSPECTIVE_RESIDENT VALUES(
+			$Uname,
+			'$_POST[uname]',
+			'$_POST[birthday]',
+			'$_POST[gender]',
+			'$_POST[leaseterm]',
+			'$_POST[apt_cat]',
+			'$_POST[movein]',
+			'$_POST[prev]',
+			$_POST[income],
+			$_POST[min],
+			$_POST[max]
+		);";
+	    if ($con->connect_error) {
+			die("Connection failed: " . $con->connect_error);
+		} 
+		if ($con->query($sql) === TRUE) {
+			echo "<script>popup2();</script>";
+		} else {
+			echo "Error: " . $sql . "<br>" . $con->error;
+		}
+
+		$con->close();
+
+    }
+}
+?>
+
 

@@ -19,6 +19,7 @@
 			<form action="apt_allotment_result.php" method="post">
 			<?php
 				$db = connect_db();
+				$username = $_POST['user'];
 				$query = "select * from APARTMENT"; //TODO: fix statement
 				$result = $db->query($query);
 				$num_rows = $result->num_rows;
@@ -31,7 +32,7 @@
 					echo "<td>".$row['Rent']."</td>\n";
 					echo "<td>".$row['Square_Feet']."</td>\n";
 					echo "<td>".$row['Available_On']."</td>\n";
-					$key = $row['Apt_No'].';'.$_POST['Usernme'];
+					$key = $row['Apt_No'].';'.$username;
 					echo "<td><input type='radio' name='key' value='".$key."' /></td>\n";
 					echo "</tr>\n";
 				}

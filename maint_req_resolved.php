@@ -12,7 +12,9 @@
 			$date = $key_values[2];
 			
 			$db = connect_db();
-			$query = "update MAINTENANCE_REQUEST set Issue_Status = 'Resolved' where Apt_No like '$aptno' and Issue_Type like '$issue' and Date_Of_Request like '$date';";
+			date_default_timezone_set("America/New_York");
+			$now= date("Y-m-d");
+			$query = "update MAINTENANCE_REQUEST set Issue_Status = 'Resolved' and Date_Resolved = '$now' where Apt_No like '$aptno' and Issue_Type like '$issue' and Date_Of_Request like '$date';";
 			echo $query."\n";
 			$result = $db->query($query);
 			if ($result){

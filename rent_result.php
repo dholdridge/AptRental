@@ -5,7 +5,9 @@
 	</head>
 	<body>
 		<?php
-			$date = $_POST['date'];
+			date_default_timezone_set("America/New_York");
+			$date = date("Y-m-d");
+			//$date = $_POST['date'];
 			$amount = $_POST['amount'];
 			$aptno = $_POST['aptno'];
 			$month = $_POST['rentMonth'];

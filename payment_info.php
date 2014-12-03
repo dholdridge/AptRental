@@ -30,9 +30,10 @@
 					<select name="card" >
 					Select card:
 					<?php
+						start_session();
+						$username = $_SESSION['loginName'];
 						// Grab the relevant credit card numbers
 						// Then put them in a drop-down box
-						$username = 'user1'; // TODO: get current username
 						$db = connect_db();
 						$query = "select Card_No from PAYMENT_INFORMATION where Username = '".$username."';";
 						$result = $db->query($query);

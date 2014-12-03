@@ -34,7 +34,14 @@
 					echo "<td>".$row['Required_Category']."</td>\n";
 					echo "<td>".$row['Pref_Move_In_Date']."</td>\n";
 					echo "<td>".$row['Pref_Lease_Term']."</td>\n";
-					echo "<td></td>\n"; //Whether the application is accepted or rejected
+					/* Determine if the user is accepted (in the RESIDENT table) or rejected */
+					$AcceptResult = $db->query("select * from RESIDENT where Prospect_Name like '".$row['Prospect_Name'].' and Date_Of_Birth like '".$row['Date_Of_Birth']."';";
+					$IsAccepted = "Unprocessed";
+					$num = $AcceptResult->num_rows();					
+					if ($num > 0) {
+						$IsAccepted = "Accepted";
+					}
+					echo "<td>$IsAccepted</td>\n"; //Whether the application is accepted or rejected
 					echo "<td>";
 					if (1){ //Place a radio button here if application is accepted
 						echo "<input type='radio' name='user' value='".$row['Username']."' />";

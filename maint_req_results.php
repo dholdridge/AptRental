@@ -7,7 +7,8 @@
 		<?php
 			$aptno = $_POST['aptno']; //Get current Apt_No
 			$issue = $_POST['issueType'];
-			$date = "2014-10-01"; //Get current date
+			date_default_timezone_set("America/New_York");
+			$date = date("Y-m-d"); //Get current date
 			$db = connect_db();
 			$query = "insert into MAINTENANCE_REQUEST values('$issue', '$date', NULL, 'Unresolved', '$aptno');";
 			echo $query."\n";

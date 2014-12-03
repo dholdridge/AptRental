@@ -15,9 +15,9 @@
 				<br />
 			Rent for Month: <!-- Two drop-down -->
 				<select name="rentMonth">
-					<option value="August">August</option>
-					<option value="September">September</option>
-					<option value="October">October</option>
+					<option value="8">August</option>
+					<option value="9">September</option>
+					<option value="10">October</option>
 				</select>
 				<select name="rentYear">
 					<option value="2014">2014</option>

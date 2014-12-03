@@ -8,8 +8,8 @@
 			<?php
 				$username = $_SESSION['loginName'];
 				$db = connect_db();
-				$result = $db->query("select Prospect_Name from PROSPECTIVE_RESIDENT where Username like '$username';"
-				$thing = result->fetch_assoc();
+				$result = $db->query("select Prospect_Name from PROSPECTIVE_RESIDENT where Username like '$username';");
+				$thing = $result->fetch_assoc();
 				$name = $thing['Prospect_Name'];
 
 			echo "Apartment Number: $name";

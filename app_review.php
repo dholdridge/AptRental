@@ -35,9 +35,9 @@
 					echo "<td>".$row['Pref_Move_In_Date']."</td>\n";
 					echo "<td>".$row['Pref_Lease_Term']."</td>\n";
 					/* Determine if the user is accepted (in the RESIDENT table) or rejected */
-					$AcceptResult = $db->query("select * from RESIDENT where Prospect_Name like '".$row['Prospect_Name'].' and Date_Of_Birth like '".$row['Date_Of_Birth']."';";
+					$AcceptResult = $db->query("select * from RESIDENT where Resident_Name like '".$row['Prospect_Name']."' and Date_Of_Birth like '".$row['Date_Of_Birth']."';";
 					$IsAccepted = "Unprocessed";
-					$num = $AcceptResult->num_rows();					
+					$num = $AcceptResult->num_rows;					
 					if ($num > 0) {
 						$IsAccepted = "Accepted";
 					}

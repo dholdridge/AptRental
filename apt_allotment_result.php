@@ -9,7 +9,7 @@
 		/*Prospect becomes resident
 		Apt Availability = Move-in + Lease term
 		*/
-		$explodeArray = explode(';', $_POST['key'])
+		$explodeArray = explode(';', $_POST['key']);
 		$aptno = $explodeArray[0];
 		$username = $explodeArray[1];
 	/*	$resname = $_POST[''];
@@ -33,12 +33,13 @@
 		$currentDate = date("Y-m-d");
 		$lease = $Apt['Lease_Term'];
 		$AvailDate = $currentDate + strtotime("+$lease months");
-		echo $AvailDate;
-		$updateAptQuery = "update APARTMENT set Availabile_On = '$AvailDate' where Apt_No = '$aptno';";
+		$AvailDateF = date("Y-m-d", $AvailDate);
+		//echo $AvailDate;
+		$updateAptQuery = "update APARTMENT set Availabile_On = '$AvailDateF' where Apt_No = '$aptno';";
 		$addResult = $db->query($addResQuery);
 		$updateResult = $db->query($updateAptQuery);
 		
-		if ($addResult && $updateResult) {
+		if (!$addResult && !$updateResult) {
 			echo "Apartment assigned.";
 		} else {
 			echo "Apartment couldn't be assigned at this time.";

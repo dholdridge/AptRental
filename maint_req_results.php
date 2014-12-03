@@ -11,7 +11,7 @@
 			$date = date("Y-m-d"); //Get current date
 			$db = connect_db();
 			$query = "insert into MAINTENANCE_REQUEST values('$issue', '$date', NULL, 'Unresolved', '$aptno');";
-			echo $query."\n";
+//			echo $query."\n";
 			
 			$result = $db->query($query);
 			
